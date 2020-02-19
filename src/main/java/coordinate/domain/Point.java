@@ -9,12 +9,12 @@ public class Point {
 	private Point(int x, int y) {
 		this.x = x;
 		if (x < 0 || x > 24) {
-			throw new IllegalArgumentException();
+			throw new InvalidPointException();
 		}
 
 		this.y = y;
 		if (y < 0 || y > 24) {
-			throw new IllegalArgumentException();
+			throw new InvalidPointException();
 		}
 	}
 
