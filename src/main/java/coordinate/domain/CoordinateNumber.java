@@ -8,9 +8,9 @@ import coordinate.InvalidPointException;
 public class CoordinateNumber {
 	public static final int LOWER_BOUND = 0;
 	public static final int UPPER_BOUND = 24;
+	private static final Map<Integer, CoordinateNumber> cache = new HashMap<>();
 
 	private final int coordinateNumber;
-	private static final Map<Integer, CoordinateNumber> cache = new HashMap<>();
 
 	static {
 		for (int i = LOWER_BOUND; i <= UPPER_BOUND; i++) {
