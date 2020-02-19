@@ -1,4 +1,4 @@
-package coordinate.domain;
+package coordinate;
 
 public class InvalidPointException extends RuntimeException {
 	public InvalidPointException() {

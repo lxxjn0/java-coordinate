@@ -9,8 +9,25 @@ import coordinate.view.InputView;
 
 public class CoordinateApplication {
 	public static void main(String[] args) {
-		String value = InputView.getPoint();
-		List<Point> points = PointParser.parse(value);
-		FigureFactory.getFigure(points);
+		List<Point> points = getParsedPoints();
+		getPointsFigure(points);
+	}
+
+	private static void getPointsFigure(List<Point> points) {
+		try {
+			FigureFactory.getFigure(points);
+		} catch (InvalidFigureException ife) {
+			System.out.println(ife.getMessage());
+			getPointsFigure(points);
+		}
+	}
+
+	private static List<Point> getParsedPoints() {
+		try {
+			return PointParser.parse(InputView.getPoint());
+		} catch (InvalidPointException ipe) {
+			System.out.println(ipe.getMessage());
+			return getParsedPoints();
+		}
 	}
 }

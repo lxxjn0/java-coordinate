@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Function;
 
+import coordinate.InvalidFigureException;
 import coordinate.domain.Point;
 
 public enum FigureFactory {

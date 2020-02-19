@@ -7,11 +7,12 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
+import coordinate.InvalidFigureException;
 import coordinate.domain.Point;
 
 public class FigureFactoryTest {
 	@Test
-	public void line() {
+	public void line() throws InvalidFigureException {
 		List<Point> points = Arrays.asList(
 			Point.of(1, 2),
 			Point.of(2, 3));
@@ -22,7 +23,7 @@ public class FigureFactoryTest {
 	}
 
 	@Test
-	public void triangle() {
+	public void triangle() throws InvalidFigureException {
 		List<Point> points = Arrays.asList(
 			Point.of(1, 1),
 			Point.of(4, 1),
@@ -34,7 +35,7 @@ public class FigureFactoryTest {
 	}
 
 	@Test
-	public void rectangle() {
+	public void rectangle() throws InvalidFigureException {
 		List<Point> points = Arrays.asList(
 			Point.of(1, 1),
 			Point.of(4, 1),

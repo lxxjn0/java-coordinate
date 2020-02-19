@@ -1,4 +1,4 @@
-package coordinate.domain.figure;
+package coordinate;
 
 public class InvalidFigureException extends Exception {
 	public InvalidFigureException() {
