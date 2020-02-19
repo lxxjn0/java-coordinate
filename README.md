@@ -4,7 +4,7 @@
 
 ## 1. enum 실습
 
-### 구현 기능 목록
+### 기능 구현 목록
 
 - 다음 코드에서 2, 3, 4 대신에 enum을 적용
 
@@ -19,6 +19,14 @@
   ```
 
 ## 2. exception 실습
+
+### 기능 구현 목록
+
+- Point 생성자의 IllegalArgumentException을 RuntimeException(Unchecked Exception)으로 변경
+
+- FigureFactory의 getFigure() 메소드의 IllegalArgumentException을 CompileTimeException(Checked Exception)으로 변경
+
+- Point 생성자와 FigureFactory의 getFigure() 메소드에서 throw하는 Exception을 main에서 catch해 예외처리
 
 ## 3. 원시 값 포장 실습
 
