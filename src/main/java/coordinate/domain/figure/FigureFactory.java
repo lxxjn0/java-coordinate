@@ -1,46 +1,32 @@
 package coordinate.domain.figure;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Function;
+
 import coordinate.domain.Point;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+public enum FigureFactory {
+	Line(2, Line::new),
+	Triangle(3, Triangle::new),
+	Rectangle(4, Rectangle::new);
 
-public class FigureFactory {
-    private static Map<Integer, FigureCreator> creators = new HashMap<>();
+	private int pointCount;
+	private Function<List<Point>, Figure> creator;
 
-    static {
-        creators.put(2, new LineCreator());
-        creators.put(3, new TriangleCreator());
-        creators.put(4, new RectangleCreator());
-    }
+	FigureFactory(int pointCount, Function<List<Point>, Figure> creator) {
+		this.pointCount = pointCount;
+		this.creator = creator;
+	}
 
-    public static Figure getFigure(List<Point> points) {
-        FigureCreator figureCreator = creators.get(points.size());
-        if (figureCreator == null) {
-            throw new IllegalArgumentException("유효하지 않은 도형입니다.");
-        }
-        return figureCreator.create(points);
-    }
-}
+	public static Figure getFigure(List<Point> points) {
+		int pointCount = points.size();
 
-class LineCreator implements FigureCreator {
-    @Override
-    public Figure create(List<Point> points) {
-        return new Line(points);
-    }
-}
+		FigureFactory figureFactory = Arrays.stream(values())
+			.filter(shape -> shape.pointCount == pointCount)
+			.findFirst()
+			.orElseThrow(() -> new IllegalArgumentException("유효하지 않은 도형입니다."));
 
-class TriangleCreator implements FigureCreator {
-    @Override
-    public Figure create(List<Point> points) {
-        return new Triangle(points);
-    }
-}
-
-class RectangleCreator implements FigureCreator {
-    @Override
-    public Figure create(List<Point> points) {
-        return new Rectangle(points);
-    }
+		return figureFactory.creator.apply(points);
+	}
 }

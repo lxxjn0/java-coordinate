@@ -1,9 +1,9 @@
 package coordinate.domain.figure;
 
-import coordinate.domain.Point;
-
 import java.util.List;
 
+import coordinate.domain.Point;
+
 public interface FigureCreator {
-    Figure create(List<Point> points);
+	Figure create(List<Point> points);
 }

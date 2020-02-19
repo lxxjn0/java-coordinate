@@ -1,26 +1,26 @@
 package coordinate.domain.figure;
 
-import coordinate.domain.Point;
-
 import java.util.List;
 
+import coordinate.domain.Point;
+
 abstract class AbstractFigure implements Figure {
-    private final List<Point> points;
+	private final List<Point> points;
 
-    AbstractFigure(List<Point> points) {
-        if (points.size() != size()) {
-            throw new IllegalArgumentException(getName() + "의 길이는 " + size() + "이어야 합니다.");
-        }
+	AbstractFigure(List<Point> points) {
+		if (points.size() != size()) {
+			throw new IllegalArgumentException(getName() + "의 길이는 " + size() + "이어야 합니다.");
+		}
 
-        this.points = points;
-    }
+		this.points = points;
+	}
 
-    protected Point getPoint(int index) {
-        return points.get(index);
-    }
+	protected Point getPoint(int index) {
+		return points.get(index);
+	}
 
-    @Override
-    public List<Point> getPoints() {
-        return points;
-    }
+	@Override
+	public List<Point> getPoints() {
+		return points;
+	}
 }

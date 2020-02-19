@@ -1,15 +1,15 @@
 package coordinate.domain.figure;
 
-import coordinate.domain.Point;
-
 import java.util.List;
 
+import coordinate.domain.Point;
+
 public interface Figure {
-    List<Point> getPoints();
+	List<Point> getPoints();
 
-    int size();
+	int size();
 
-    String getName();
+	String getName();
 
-    double area();
+	double area();
 }
