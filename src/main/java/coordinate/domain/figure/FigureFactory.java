@@ -19,13 +19,13 @@ public enum FigureFactory {
 		this.creator = creator;
 	}
 
-	public static Figure getFigure(List<Point> points) {
+	public static Figure getFigure(List<Point> points) throws InvalidFigureException {
 		int pointCount = points.size();
 
 		FigureFactory figureFactory = Arrays.stream(values())
 			.filter(shape -> shape.pointCount == pointCount)
 			.findFirst()
-			.orElseThrow(() -> new IllegalArgumentException("유효하지 않은 도형입니다."));
+			.orElseThrow(() -> new InvalidFigureException("유효하지 않은 도형입니다."));
 
 		return figureFactory.creator.apply(points);
 	}
