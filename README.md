@@ -30,6 +30,12 @@
 
 ## 3. 원시 값 포장 실습
 
+### 기능 구현 목록
+
+- Point의 x, y값에 해당하는 int 값을 새로운 객체로 포장
+
+- Point의 x, y값을 포장한 객체를 1 ~ 24의 값을 미리 생성한 후 재사용 가능한 구조로 변경
+
 ## 우아한테크코스 코드리뷰
 
 - [온라인 코드 리뷰 과정](https://github.com/woowacourse/woowacourse-docs/blob/master/maincourse/README.md)
