@@ -2,22 +2,13 @@ package coordinate.domain;
 
 import java.util.Objects;
 
-import coordinate.InvalidPointException;
-
 public class Point {
-	private final int x;
-	private final int y;
+	private final CoordinateNumber x;
+	private final CoordinateNumber y;
 
-	private Point(int x, int y) {
+	private Point(CoordinateNumber x, CoordinateNumber y) {
 		this.x = x;
-		if (x < 0 || x > 24) {
-			throw new InvalidPointException("유효하지 않은 좌표입니다.");
-		}
-
 		this.y = y;
-		if (y < 0 || y > 24) {
-			throw new InvalidPointException("유효하지 않은 좌표입니다.");
-		}
 	}
 
 	private static int square(int number) {
@@ -25,12 +16,13 @@ public class Point {
 	}
 
 	public static Point of(int x, int y) {
-		return new Point(x, y);
+		return new Point(CoordinateNumber.valueOf(x), CoordinateNumber.valueOf(y));
 	}
 
 	public static Point ofCommaSeparator(String text) {
 		String[] values = text.split(",");
-		return new Point(Integer.parseInt(values[0]), Integer.parseInt(values[1]));
+		return new Point(CoordinateNumber.valueOf(Integer.parseInt(values[0])),
+			CoordinateNumber.valueOf(Integer.parseInt(values[1])));
 	}
 
 	public double getDistance(Point other) {
@@ -39,12 +31,12 @@ public class Point {
 		return Math.sqrt(square(xDifference) + square(yDifference));
 	}
 
-	private int minusX(int number) {
-		return this.x - number;
+	private int minusX(CoordinateNumber number) {
+		return this.x.minus(number);
 	}
 
-	private int minusY(int number) {
-		return this.y - number;
+	private int minusY(CoordinateNumber number) {
+		return this.y.minus(number);
 	}
 
 	@Override

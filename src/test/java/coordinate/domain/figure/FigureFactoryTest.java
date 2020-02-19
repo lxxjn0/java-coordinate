@@ -50,8 +50,7 @@ public class FigureFactoryTest {
 	@Test
 	public void invalid_figure() {
 		List<Point> points = Arrays.asList(Point.of(1, 2));
-		assertThatIllegalArgumentException().isThrownBy(() -> {
-			FigureFactory.getFigure(points);
-		});
+		assertThatThrownBy(() -> FigureFactory.getFigure(points))
+			.isInstanceOf(InvalidFigureException.class);
 	}
 }
