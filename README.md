@@ -1,6 +1,8 @@
-# java-coordinate
+# 🧮 java-coordinate
 
-좌표계산기 미션을 진행하기 위한 저장소
+> 좌표 계산기 미션을 진행하는 Repository
+
+<br/>
 
 ## 1. enum 실습
 
@@ -18,6 +20,8 @@
   ...
   ```
 
+<br/>
+
 ## 2. exception 실습
 
 ### 기능 구현 목록
@@ -28,6 +32,8 @@
 
 - Point 생성자와 FigureFactory의 getFigure() 메소드에서 throw하는 Exception을 main에서 catch해 예외처리
 
+<br/>
+
 ## 3. 원시 값 포장 실습
 
 ### 기능 구현 목록
@@ -35,6 +41,8 @@
 - Point의 x, y값에 해당하는 int 값을 새로운 객체로 포장
 
 - Point의 x, y값을 포장한 객체를 1 ~ 24의 값을 미리 생성한 후 재사용 가능한 구조로 변경
+
+<br/>
 
 ## 우아한테크코스 코드리뷰
 
